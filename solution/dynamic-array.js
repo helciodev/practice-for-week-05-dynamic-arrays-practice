@@ -1,22 +1,22 @@
 class DynamicArray {
-
-  constructor(defaultSize=4) {
-
-    // Your code here
-
+  constructor(defaultSize = 4) {
+    this.data = new Array(defaultSize);
+    this.length = 0;
+    this.capacity = defaultSize;
   }
 
   read(index) {
-
-    // Your code here
+    return this.data[index];
   }
 
   unshift(val) {
-
-    // Your code here
+    const newArr = [val];
+    for (let i = 0; i < this.data.length; i++) {
+      newArr[i + 1] = this.data[i];
+    }
+    this.length++;
+    this.data = newArr;
   }
-
 }
-
 
 module.exports = DynamicArray;
